@@ -1,0 +1,53 @@
+--- Vorbereitung ---
+0.5499999999999998
+-1.8076923076923084
+--- Teilversuch 1 ---
+Funktion = Paschen, Startwerte = None
+Fitparameter (A, B, C):
+Werte:               1.008      6.19    0.9884
+Unsicherheiten:  8.627e+04     5.542 8.561e+04
+
+Funktion = Paschen, Startwerte = (80, 2, 0.7)
+Fitparameter (A, B, C):
+Werte:               8.483     103.6     2.228
+Unsicherheiten:  1.109e+06     2.757 1.307e+05
+
+Funktion = f, Startwerte = (80, 2, 0.7)
+Fitparameter (A, B, C):
+Werte:               74.11    0.6008   -0.7946
+Unsicherheiten:      2.405   0.02191   0.08609
+U_min = 335.277276195439
+ΔU_min = 16.365850690252824
+--- Teilversuch 3 ---
+Fitparameter (m, b):
+Werte:             -0.8129    0.4195
+Unsicherheiten:    0.09564    0.2288
+--- Teilversuch 1 ---
+K_alpha-Linie:
+lambda = 7.908e-11, Δlambda = 1.17e-12
+lambda = 7.498e-11, Δlambda = 5.694e-13
+lambda = 7.346e-11, Δlambda = 3.625e-13
+Durchschnitt: lambda = 7.584e-11, Δlambda = 2.374e-12
+Abweichung vom Literaturwert: 2.0 Standardabweichungen
+K_beta-Linie:
+lambda = 7.108e-11, Δlambda = 8.789e-13
+lambda = 6.703e-11, Δlambda = 4.303e-13
+lambda = 6.566e-11, Δlambda = 2.767e-13
+Durchschnitt: lambda = 6.792e-11, Δlambda = 2.303e-12
+Abweichung vom Literaturwert: 2.1 Standardabweichungen
+--- Teilversuch 4 ---
+Auswertung vor Ort:
+Alpha-Linien:
+Z = 22, n_1 = 2: sqrt_ratio =    16.74, sigma =     2.67
+Z = 26, n_1 = 2: sqrt_ratio =    21.04, sigma =     1.71
+Z = 29, n_1 = 2: sqrt_ratio =    23.86, sigma =     1.45
+Z = 42, n_1 = 2: sqrt_ratio =    35.48, sigma =     1.03
+Z = 47, n_1 = 2: sqrt_ratio =    40.06, sigma =     0.74
+Z = 79, n_1 = 2: sqrt_ratio =    26.21, sigma =    48.74
+Beta-Linien:
+Z = 22, n_1 = 3: sqrt_ratio =    35.42, sigma =   -15.57
+Z = 26, n_1 = 3: sqrt_ratio =    35.42, sigma =   -11.57
+Z = 29, n_1 = 3: sqrt_ratio =    35.48, sigma =    -8.63
+Z = 42, n_1 = 3: sqrt_ratio =    37.72, sigma =     1.99
+Z = 47, n_1 = 3: sqrt_ratio =    42.68, sigma =     1.73
+Z = 79, n_1 = 3: sqrt_ratio =    28.57, sigma =    48.70
