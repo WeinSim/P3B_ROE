@@ -16,9 +16,10 @@
     urlcolor=blue
 ]{hyperref}
 \usepackage{graphicx}
+\usepackage{multirow}
 \usepackage{amssymb}
 \usepackage{float}
-\usepackage{siunitx} \sisetup{locale = DE}
+\usepackage{siunitx} \sisetup{locale = DE, uncertainty-mode = separate}
 \usepackage{pdfpages}
 \usepackage{multirow}
 \usepackage[
@@ -52,9 +53,6 @@
 \newcommand{\wideimplies}{\widespace \implies \widespace}
 \newcommand{\pd}[2]{
     \frac{\partial #1}{\partial #2}
-}
-\newcommand{\result}[2]{
-    #1 \, \text{#2}
 }
 
 % Markieren von verwendetem Code
@@ -95,9 +93,8 @@
 
 % Allgemeine Infos
 \newcommand{\versuchsname}{
-    ROE - Röntgenstrahlung: Bragg-Reflexion und Röntgenfloureszenzanalyse
+    ROE - Rötgenstrahlung: Bragg-Reflexion und Röntgenfloureszenzanalyse
 }
-
 \newcommand{\githuburl}{
     \url{https://github.com/WeinSim/P3B}
 }
@@ -149,7 +146,6 @@
 \bibliography{literatur}
 
 \newpage
-
 
 \section{Vobereitung}
 
@@ -653,41 +649,264 @@ Folgend werden zwei Methoden zur Detektion von Röntgenstrahlung betrachtet. Zum
 
 \newpage
 
-\iffalse
-
 \section{Versuchsprotokoll}
 
 Auf den folgenden Seiten befindet sich das eingescannte Versuchsprotokoll. Alle Daten wurden selbst gemessen. Sofern fremde Hilfe benutzt wurde, wurde sie klar gekennzeichnet.
 
 Messunsicherheiten wurden angegeben und folgend in der Auswertung verwendet. Alle weiteren Rechnungen und Analysen finden in der Versuchsasuwertung statt.
 
-\includepdf[pages={...}, pagecommand={\thispagestyle{scrheadings}}, frame=true]{[Name.pdf]]}
+% \includepdf[pages={1-19}, pagecommand={\thispagestyle{scrheadings}}, frame=true]{Protokoll.pdf}
+\includepdf[pages={1-19}, frame=true]{Protokoll.pdf}
 
 \newpage
+
 
 \section{Auswertung}
 
-    \subsection{Teilversuch 1: Bragg-Reflexion von Röntgenstrahlung des Molybdän an einem NaCl-Eiskristall}
+\subsection{Teilversuch 1: Bragg-Reflexion von Röntgenstrahlung des Molybdän
+an einem NaCl-Eiskristall}
 
-    \newpage
+Für jede Beugungsordnung ($n = 1, 2, 3$) sind der $K_\alpha$- und der
+$K_\beta$-Peak sichtbar. Der $K_\beta$-Peak entspricht einer größeren
+Energiedifferenz, weil das Elektron von einer größeren Schale
+($M$-Schale $\implies n = 3$) in die $K$-Schale fällt als bei einem
+$K_\alpha$-Übergang ($L$-Schale $\implies n = 2$).
+Diese größere Energiedifferenz entspricht wegen
+$\lambda = c / \nu = (\hbar \lambda)$ einer kleineren Wellenlänge
+und somit einem kleineren Beugungswinkel am Kristallgitter.
+Also ist in dem Graphen jeweils der linke Peak der $K_\beta$-Peak
+und der rechte Peak der $K_\alpha$-Peak.
 
-    \subsection{Teilversuch 2: Energiespektrum einer Röntgenröhre in Abhängigkeit der Spannung}
-    
-    \newpage
+Es gilt die Bragg-Gleichung $n \lambda = 2 d \sin \theta$,
+wobei $\lambda$ die Wellenlänge, $d = \qty{282.01}{\pico\meter}$ der
+Netzebenenabstand und $\theta$ der Beugungswinkel ist.
+Aus unseren Messwerten können wir also aus der ersten, zweiten und dritten
+Beugungsordnung jeweils die Wellenlängen $\lambda_\alpha$ und $\lambda_\beta$
+der $K_\alpha$- bzw. $K_\beta$-Linien berechnen ($\lambda = 2 d / n \sin \theta$).
+Dafür ergeben sich die Werte
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c}
+        Beugungsordnung & $\lambda_\alpha$ & $\lambda_\beta$ \\
+        \hline
+        1 & \qty{79.1 \pm 1.2}{\pico\meter} & \qty{71.1 \pm 0.9}{\pico\meter} \\
+        2 & \qty{75.0 \pm 0.6}{\pico\meter} & \qty{67.3 \pm 0.5}{\pico\meter} \\
+        3 & \qty{73.5 \pm 0.6}{\pico\meter} & \qty{66.7 \pm 0.4}{\pico\meter} \\
+        \hline
+        Durchschnitt & \qty{75.8 \pm 2.4}{\pico\meter} & \qty{68.9 \pm 2.4}{\pico\meter}
+    \end{tabular}
+    \caption{Wellenlängen des $K_\alpha$- und $K_\beta$-Übergangs von Molybdän
+    (\coderef{tv1})}
+\end{table}
+Es ist auffällig, dass die Werte für die drei Bindungsordnungen nicht übereinstimmen.
+Theoretisch würde man hier jeweils drei mal den gleichen Werte erwarten,
+weil jeder der Peaks vom selben atomaren Übergang kommt.
+Weil die Abweichung der Werte untereinander größer ist als deren einzelne
+Unsicherheiten, wurde für die Berechnung der Unsicherheiten der
+Durchschnittswerte nicht die gauß'sche Fehlerfortpflanzung,
+sondern die Standardabweichung der Verteilung der Werte verwendet.
+Zudem ist auffällig, dass die Abweichungen der $\alpha$- und $\beta$-Wellenlängen
+übereinstimmen. In beiden Fällen gilt näherungsweise
+$\lambda_1 \approx \lambda_2 + \qty{4}{\pm} \approx \lambda_3 + \qty{5}{\pm}$.
+Diese gleichmäßigen Abweichungen könnten auf eine Fehlkalibration
+der Winkelskala hindeuten.
 
-    \subsection{Teilversuch 3: Duane-Huntsches Verschiebungsgesetz}
-
-    \newpage
-
-    \subsection{Teilversuch 4: Röntgenfluoreszenzanalyse}
-
-    \newpage
-
-    \subsection{Teilversuch 5: Identifiaktion einer unbekannten Probe}
-
-    \newpage
+Dadurch könnte auch die allgemeine Abweichung der
+Durchschnittswerte von den Literaturwerten zustande kommen.
+Unser experimentell bestimmter Wert von $\lambda_\alpha = \qty{75.8 \pm 2.4}{\pm}$
+ist \num{2.0} Standardabweichungen vom Literaturwert von \qty{71.08}{\pm}
+entfernt und somit mit diesem verträglich.
+Analog ist unser experimentell bestimmter Wert von
+$\lambda_\beta = \qty{75.8 \pm 2.4}{\pm}$ \num{2.1} Standardabweichungen vom
+Literaturwert von \qty{71.08}{\pm} entfernt und somit ebenfalls mit
+diesem verträglich (\coderef{tv1}).
 
 \newpage
+
+
+\subsection{Teilversuch 2: Energiespektrum einer Röntgenröhre
+in Abhängigkeit der Spannung}
+
+
+In der folgenden Tabelle sind die experimentell bestimmten Wellenlängen
+der $K_\alpha$- und $K_\beta$-Linien dargestellt, die mit verschiedenen
+Heizspannungen aus der ersten und zweiten Beugungsordnung bestimmt wurden
+(in unserem Versuchsprotokoll haben wir die Beschriftungen für die $K_\alpha$-
+und die $K_\beta$-Linie vertauscht):
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|ccc|}
+        \hline
+        \multirow{2}{*}{Peak} & \multicolumn{3}{c|}{Spannung} \\
+        % \cline{2-4}
+        & \qty{20.0}{\kV} & \qty{25.0}{\kV} & \qty{35.0}{\kV} \\
+        \hline
+        $\lambda_\alpha$ & \qty{79.3 \pm 1.8}{\pm} & \qty{79.2 \pm 1.2}{\pm}
+        & \qty{79.1 \pm 1.2}{\pm} \\
+        % \hline
+        $\lambda_\beta$ & - & \qty{71.1 \pm 1.0}{\pm} & \qty{71.1 \pm 0.9}{\pm} \\
+        \hline
+    \end{tabular}
+    \caption{Berechnete Wellenlängen aus der ersten Beugungsordnung}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|cc|}
+        \hline
+        \multirow{2}{*}{Peak} & \multicolumn{2}{c|}{Spannung} \\
+        % \cline{2-4}
+        & \qty{25.0}{\kV} & \qty{35.0}{\kV} \\
+        \hline
+        $\lambda_\alpha$ & \qty{75.0 \pm 0.6}{\pm} & \qty{75.0 \pm 0.5}{\pm} \\
+        % \hline
+        $\lambda_\beta$ & \qty{67.3 \pm 0.6}{\pm} & \qty{67.2 \pm 0.6}{\pm} \\
+        \hline
+    \end{tabular}
+    \caption{Berechnete Wellenlängen aus der zweiten Beugungsordnung}
+\end{table}
+
+Wie zu erkennen ist, stimmen die Werte für eine bestimmte Wellenlänge
+bei einer bestimmten Ordnung sehr gut miteinander überein (auch wenn die
+unterschiedlichen Beugungsordnungen nicht miteinander übereinstimmen,
+wie bereits bei Teilversuch 1 diskutiert).
+Dies ist zu erwarten, da die Wellenlängen nicht von der Beschleunigungsspannung
+abhängig sind, sondern nur durch die Energien der entsprechen atomaren Übergänge
+bestimmt sind.
+
+\newpage
+
+
+\subsection{Teilversuch 3: Duane-Huntsches Verschiebungsgesetz}
+
+Zunächst soll die minimale Wellenlänge des Bremsspektrums erklärt werden.
+Die Bremsstrahlung entsteht dadurch, dass Eleketronen mit einer hohen kinetischen
+Energie beim Aufprall auf die Molybdän-Anode gebremst werden und somit ihre
+kinetische Energie verlieren. Diese Energie wir in Form eines Photons freigesetzt.
+Dabei ist die Wellenlänge des Photons gegeben durch $\lambda = E / (\hbar c)$.
+Die maximale Energie, die ein Photon haben kann, ist also die gesamte kinetische
+Energie eines einzelnen Elektrons. Diese beträgt $eU$, wobei $U$ die Spannung
+zwischen Kathode und Anode ist.
+Aufgelöst nach der Wellenlänge ergibt sich die Bedingung
+\[
+    \lambda \widegeq \frac{\hbar c}{e U}.
+\]
+
+Während des Versuchs sollte dann das Planck'sche Wirkungsquantum experimentell bestimmt werden. Hierfür wurden als ersten die minimalen Energien des Bremsspektrums gemessen. Mit Hilfe von Ausgleichsgeraden wurden schließlich die Werte für $\lambda_{min}$ bestimmt. Ersichtlich in folgendem Graph:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/Bestimmunglabmda.png}
+    \caption{Experimentelle Bestimming von $\lambda_{min}$ mit Hilfe von Ausgleichsgeraden}
+\end{figure}
+
+Anschließend wurden die Werte von $\lambda_{min}$ in einem neuen Graphen aufgetragen. Über eine Ursprungsgerade/Ausgleichgerade war es nun möglich den experimentell bestimten Wert abzulesen:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/Planck.png}
+    \caption{Bestimmung Planck'sches Wirkungsquantum}
+\end{figure}
+
+Der experimentell bestimmte Wert für das Plank'sche Wirkungsquantum beträgt $h_e=\qty{7.11e-34}{J.s}$. Verglichen mit dem Literaturwert von $h_l=\qty{6.63e-34}{J.s}$ lässt sich eine leichte Abweichung festellen.
+
+Diese Abweichung lässt sich darauf zurückführen, dass der Bereich, welcher für die Ausgleichsgeraden gewählt wurde, nur nach Augenmaß bestimmt wurde. Aus diesem Grund kann es sein, dass Abweichungen auftreten, welche sich schließlich bis zur Bestimmung des Werts Plankschen Wirkungsquantum durchziehen.
+
+Der bestimmte Wert weicht jedoch nicht all zu weit vom Literaturwert ab, wodruch das Experiment unter der Verwendung von noch genaueren Messmethoden eine gut Möglichkeit ist, das Planksche Wirkungsquantum zu bestimmen.
+
+\newpage
+
+
+\subsection{Teilversuch 4: Röntgenfluoreszenzanalyse}
+
+Während des Versuchs wurden in Summe sechs Probekörper verwendet. Im Folgenden werden alle Probekörper angeführt und deren Zugehörigkeit zum Graphen hergestellt. Der Graph beschreibt hierbei eine Art Wahrscheinlichkeitsverteilung, von gemessenen Energien:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/Spektrum_Floureszrnz.png}
+    \caption{Spektrum Teilversuch 4}
+\end{figure}
+
+Die frabigen Linien entsprechen folgenden Elementen:
+
+\begin{enumerate}
+    \item rot: Titan
+    \item grün: Kupfer
+    \item braun: Molybdän
+    \item blau: Eisen
+    \item dunkelblau: Silber
+    \item schwarz: Gold
+
+Die ablesbaren Werte wurden mittels den bekannten Werten von Eisen und Molybdän skaliert. Mit Hilfe der skalierten Werte der verschiedenen Elemente konnte folglich das Moseley-Gesetz überprüft werden. Hierfür wurden die Werte die Werte der $\alpha$-Linie gegen die Ordnungszahl des Elements aufgetragen:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/Moseley.png}
+    \caption{Graphische Darstellung Moseley-Gesetz}
+\end{figure}
+
+Vergleicht man die experimentell bestimmte Kurve mit einer Kurve der Literatur, beziehungsweise mit der Kurve aus dem Skript so lässt sich festellen, dass sich die Kurven grundsätzlich sehr ähnlich sind. Jedoch ist hier schon ersichtlich, dass die experimentell bestimmten Werte für Golf für alle wissenschaftlichen Aussagen leider nicht berücksichtigt werden können, da diese eine zu große Abweichung vom Literaturwert haben. Die Messwerte sind in allen folgen Graphen angeführt, werden aber wie gerade beschrieben für Aussagen und Feststellungen nicht berücksichtigt. Ein möglicher Aspekt, warum die Messwerte so abweichen könnte der Zustand des goldbeschichteten Plättchens sein, welches für die Messungen verwendet wurde. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{Abbildungen/Gold.jpeg}
+    \caption{Gold-Plättchen aus Versuch}
+\end{figure}
+
+Wie ersichtlich, ist der Zustand des goldbeschichteten Plättchens leider sehr schlecht, wodurch die Messung leider negativ beeinflusst worden sein könnte. Auch ist das gold nicht durchgehend auf der Fläche des Plättchens, was ebenfalls zu einer fehlerhaften Messung führen könnte. Um eine saubere Messung mit dem Element Gold durchführen zu können, würde man also ein einwandfreies Plättchen aus Gold benötigen, bei welchem keine Mängel nachweisbar sind.
+
+Betrachtet man nun alle Messdaten außer Gold, so lässt sich feststellen, dass die Kurve des Moseley-Gesetzes sehr gut experiemtell bestimmt wurde. Wie ersichtlich, liegen alle punkte näherungsweise auf der Gerade. Von den $\beta$-Werten sind leider nur zwei sinnvoll verwendbar. Hier wurde aufgrund der zu wenigen sinnvollen Messpunkte keine Gerade angelegt.
+
+Mit Hilfe des Moseleyschen Gesetzes und den berechneten Werten konnte anschließend die Abschirmkonstate für die Elektronenübergänge der K-Linien bestimmt wereden.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/Abschirm.png}
+    \caption{Experimentell bestimmte Abschirmkonstakten für Elektronenübergang der K-Linien}
+\end{figure}
+
+Vergleicht man die experimentell bestimmten Werte, inklusive der Kurve, erneut mit dem Litereaturwert, beziehungsweise mit der angegebenen Kurve aus dem Skript, so ist ersichtlich, dass die bestimmte Kurve ein wenig runder und zu Beginn steiler abfällt. Zudem ist der Wert für Silber ein wenig zu tief, weshalb die Kurve am Ende ein wenig abfällt. Grundlegend ist der Verlauf der Kurve aber gut zu erkennen. Es ist ein abwärtstrend mit zunehmender Ordnungszahl zu erkennen, welcher im Verlauf der Kurve immer kleiner wird. Das liegt daran, dass bei Elementen mit größeren Ordnungszahlen, also mit größerer Masse, relativistische Effekte die Energie des Grundniveaus/-zustandes absenken. 
+
+Abweichungen der Messdaten von den Literaturwerten, können in diesem Versuch mehrere Gründe haben. Folgend sollen ein paar dieser Aspekte beleuchtet werden:
+
+\begin{enumerate}
+    \item Die Bestimmung der Peakschwerpunkte stellte eine Schwierigkeit dar. Ein exaktes Ausmessen war hier nur sehr schwer möglich, wodurch die experimentell bestimmten Werte von den literarischen Werten abweichen.
+    \item Die Energiekalibrierung des Programms war zudem nicht fehlerfrei. Obwohl eine exakte Kalibrierung vorgegeben war, wurde die Kalibriergun nicht exakt von dem Programm vorgenommen. Dadurch entstand eine grundlegende Abweichung der Kalibrirung, welche durch mehrere Lösungsmöglichkeiten nicht behoben werden konnte. Folglich hat man  eine grundlegende Abweichung der Messwerte von den Litraturwerten, welche in jeder Messung vorhanden ist.
+    \item Die Überlagerung der Peaks machte es schwierig exakte Messdaten auszulesen. Aus diesm Grund konnten auch keine exakten Werte für die $\beta$-Linien aufgenommen und ausgelesen werden. Folglich lassen sich auch keine Aussagen über die Werte treffen.
+    \item Es können zudem auch immer Fehler innerhalb der Messgeräte auftreten, welche sich durch alle Messerwerte durchziehen.
+\end{enumerate}
+
+Abschließend lässt sich jedoch festhalten, dass die experimentell bestimmten Werte gut mit den Literaturwerten vergleichbar sind und in dessen Verlauf auch mit den literarischen Werten übereinstim- men.
+
+\end{enumerate}
+
+\newpage
+
+\subsection{Teilversuch 5: Identifiaktion einer unbekannten Probe}
+
+In Teilversuch 5 wurde ein Kreuz einer Kette auf dessen Zusammensetzung analysiert. Hierfür wurde das experimentelle Verfahren aus Teilversuch 4 verwendet und folgender Graph erstellt:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/TV5_Spektrum.png}
+    \caption{Spektrum Probekörper unbekannt}
+\end{figure}
+
+Anschließend wurde wieder die Schwerpunkte der Peaks bestimmt. Folgender Graph ergab sich:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Abbildungen/TV5mitWerten.png}
+    \caption{Spektrum Probekörper unbekannt mit Schwerpunktenergie}
+\end{figure}
+
+Aus den Energien und mittels Periodensystem konnte darauf geschlossen werden, dass das Kreuz aus Silber besteht. Hierfür sind vor allem der vorletzt und letzte Peak ein Indiz. Der letzte Peak spiegelt hierbei die $K_\beta$-Linie wider und die vorletzte die $K_\alpha$-Linie.
+
+Die anderen Peaks enstehen dadurch, dass das Kreuz den Probekörpertisch nicht vollständig abgedeckt hat und somit auch Strahlung vom Tisch reflektiert wurde. Aber der stärkste Ausschlag spricht ohne Zweifel dafür, dass das Kreuz aus Silber besteht.
+
+\newpage
+
 
 \section{Anmerkung: Graphische Auswertung und Fehlerfortpflanzung mit Python-Code}
 
@@ -697,12 +916,13 @@ vermeiden. Alle Ergebnisse, die auf diese Weise zustande gekommen sind,
 sind entsprechend mit einem \colorbox{codebg}{blauen Hintergrund} gekennzeichnet;
 s. folgendes Beispiel:
 \[
-    F \wideeq ma \wideeq \result{20}{kg} \cdot 9,81 \, \frac{\text m}{\text s^2}
-    \wideeq \result{(19,62 \pm 0,5)}{N} \coderef{tv1}
+    F \wideeq ma \wideeq \qty{20}{\kg} \cdot \qty{9.81}{\meter\per\square\second}
+    \wideeq \qty{19.6 \pm 0.5}{\newton} \quad \coderef{tv1}
 \]
 Dies soll bedeuten, dass die Berechnung des Wertes und der Unsicherheit von der
 Python-Funktion namens \verb|tv1| durchgeführt wird.
-Die Unsicherheit wird mithilfe der Gauß'schen Fehlerfortpflanzung berechnet.
+Die Unsicherheit wird - sofern nicht anders angegeben - mithilfe der Gauß'schen
+Fehlerfortpflanzung berechnet.
 Außerdem wird das Python-Package \texttt{matplotlib} zum Erstellen
 von Graphen verwendet.
 
@@ -717,17 +937,15 @@ Stellen unvollständig erscheinen. Auf GitHub wird aber alles richtig angezeigt.
 \newpage
 
 
-\verb|Main.py|:
-\lstinputlisting[language=Python]{Code/Main.py}
+\verb|main.py|:
+\lstinputlisting[language=Python]{Code/main.py}
 \newpage
 
-\verb|Expressions.py|:
-\lstinputlisting[language=Python]{Code/Expressions.py}
+\verb|expressions.py|:
+\lstinputlisting[language=Python]{Code/expressions.py}
 \newpage
 
 Output:
-\lstinputlisting{Code/Output.txt}
-
-\fi
+\lstinputlisting{Code/output.txt}
 
 \end{document}
